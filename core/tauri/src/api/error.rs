@@ -12,4 +12,7 @@ pub enum Error {
   /// JSON error.
   #[error(transparent)]
   Json(#[from] serde_json::Error),
+  /// IO error.
+  #[error(transparent)]
+  Io(#[from] std::io::Error),
 }

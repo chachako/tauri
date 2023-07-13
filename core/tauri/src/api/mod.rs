@@ -4,6 +4,7 @@
 
 //! The Tauri API interface.
 
+pub mod file;
 pub mod ipc;
 
 mod error;
