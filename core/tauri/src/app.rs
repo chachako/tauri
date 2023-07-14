@@ -36,7 +36,7 @@ use tauri_runtime::window::{
   dpi::{PhysicalPosition, PhysicalSize},
   FileDropEvent,
 };
-use tauri_utils::PackageInfo;
+use tauri_utils::{config::WindowConfig, PackageInfo};
 
 use std::{
   collections::HashMap,
@@ -1277,6 +1277,18 @@ impl<R: Runtime> Builder<R> {
       }),
     );
     self
+  }
+
+  /// Adds a pending window to the runtime.
+  pub fn with_window(mut self, config: WindowConfig) -> crate::Result<Self> {
+    let label = config.label.clone();
+    let webview_attributes = WebviewAttributes::from(&config);
+    self.pending_windows.push(PendingWindow::with_config(
+      config,
+      webview_attributes,
+      label,
+    )?);
+    Ok(self)
   }
 
   /// Change the device event filter mode.
