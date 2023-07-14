@@ -11,9 +11,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "yarn tsup && node ./scripts/after-build.cjs && yarn generate-docs",
-    "npm-pack": "yarn build && cd ./dist && npm pack",
-    "npm-publish": "yarn build && cd ./dist && yarn publish --access public --loglevel silly --tag next",
+    "build": "pnpm tsup && node ./scripts/after-build.cjs && pnpm generate-docs",
+    "npm-pack": "pnpm build && cd ./dist && npm pack",
+    "npm-publish": "pnpm build && cd ./dist && pnpm publish --access public --loglevel silly --tag next",
     "lint": "eslint --ext ts \"./src/**/*.ts\"",
     "lint-fix": "eslint --fix --ext ts \"./src/**/*.ts\"",
     "format": "prettier --write --end-of-line=auto \"./**/*.{cjs,js,jsx,ts,tsx,html,css,json}\" --ignore-path ../../.prettierignore",
@@ -37,8 +37,7 @@
   },
   "engines": {
     "node": ">= 14.6.0",
-    "npm": ">= 6.6.0",
-    "yarn": ">= 1.19.1"
+    "npm": ">= 6.6.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.62.0",
