@@ -173,6 +173,8 @@ pub enum TitleBarStyle {
   /// - You need to define a custom drag region to make your window draggable, however due to a limitation you can't drag the window when it's not in focus <https://github.com/tauri-apps/tauri/issues/4316>.
   /// - The color of the window title depends on the system theme.
   Overlay,
+  /// Hides the title bar completely.
+  Hidden,
 }
 
 impl Default for TitleBarStyle {
@@ -213,6 +215,7 @@ impl Display for TitleBarStyle {
         Self::Visible => "Visible",
         Self::Transparent => "Transparent",
         Self::Overlay => "Overlay",
+        Self::Hidden => "Hidden",
       }
     )
   }

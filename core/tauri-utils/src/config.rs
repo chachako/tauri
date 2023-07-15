@@ -2155,6 +2155,7 @@ mod build {
         Self::Visible => quote! { #prefix::Visible },
         Self::Transparent => quote! { #prefix::Transparent },
         Self::Overlay => quote! { #prefix::Overlay },
+        Self::Hidden => quote! { #prefix::Hidden },
       })
     }
   }

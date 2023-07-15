@@ -926,6 +926,11 @@ impl WindowBuilder for WindowBuilderWrapper {
         self.inner = self.inner.with_titlebar_transparent(true);
         self.inner = self.inner.with_fullsize_content_view(true);
       }
+      TitleBarStyle::Hidden => {
+        self.inner = self.inner.with_titlebar_transparent(true);
+        self.inner = self.inner.with_fullsize_content_view(true);
+        self.inner = self.inner.with_titlebar_buttons_hidden(true);
+      }
     }
     self
   }
